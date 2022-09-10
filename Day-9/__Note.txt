@@ -1,0 +1,83 @@
+========================
+Node js introduction
+========================
+
+//Node Js is a JavaScript runtime
+//With the help of Node Js: 
+    ===Querying the database
+    ===Operations over database
+    ===Access/Writ a file on server
+    ===Server Side Request, Response Handle
+    ===Software Backend Operations
+
+
+//Node JS Tools
+    ===Node JS Environment(Install Node JS)
+    ===VS Code / WebStorm
+
+====================
+//Tools And Terminal
+====================
+==Tools 
+===Node JS
+===VS Code
+===WebStorm
+
+==Terminal
+===Windows CMD
+===Windows Powershell
+===VS Code Terminal Option
+===WebStorm Terminal
+===Node JS Terminal(For small code execution)
+
+
+==============
+Node Js Module
+==============
+//What is Module?
+==Bundle of many codes, which can be reused from anywhere
+
+//Node JS includes three types of mudules:
+==Core Modules (Node JS own Module)
+    ==(http, url, querystring, path, fs, util)
+==Local Modules (Personal Module)
+==Third Party Modules (Imported Module from outside)
+
+==========================================
+//My First Node Server Hello World Program
+==========================================
+
+==http module import/require 
+==then http will call createServer method
+==createServer method takes one anonymous call back function
+==Anonymous call back function takes 2 parameter (Request, Response):
+    ==Request->manages server Request   
+    ==Response->create response against the request
+==have to listen in one port
+
+========================
+//Request Response Model
+========================
+
+==HTTP Request Methods
+    ->GET()
+    ->DELETE()
+    ->POST()
+    ->PUT()
+    ->OPTIONS()
+    ->HEAD()
+
+//Response
+==Status Code (200,404,500...)
+
+==Data(Head, Body)
+    ==Head (Pairwise Data, Sensitive Data)
+    ==Body(JSON)
+
+===========================================
+How Request Response Model Works in node js
+===========================================
+
+//Theory
+//And Practice
+

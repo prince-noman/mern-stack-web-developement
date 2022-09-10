@@ -1,0 +1,18 @@
+=================
+ES6 Class Introduction
+=================
+//Object Orientied Programming starts with Class
+//Class is like bazar bag.
+//Reusable term
+//We can create class by using class keyword
+//Main function is to bind many properties and methods/functions
+//To access class properties or method, first we need to create obj of that class
+
+=====================
+ES6 Class Constructor
+=====================
+//Constructor is class's own method
+//When class's Object is created, Constructor method calls automatically.
+//It works like other function
+//***** Constructor can't return*******
+//******One class holds one Constructor only*******
