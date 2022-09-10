@@ -1,0 +1,6 @@
+=================
+Class
+=================
+//Object Orientied Programming starts with Class
+//Class is like bazar bag.
+//Reusable term
