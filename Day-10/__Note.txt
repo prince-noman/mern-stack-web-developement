@@ -1,0 +1,61 @@
+===================
+//HTTP Client
+===================
+
+==This is a module or system which send req. to server and receive response outside of browser
+
+//Example of HTTP Clients
+=Axios
+=Fetch
+=JQuery Ajax
+=cURL
+=Volly
+=Retrofit
+=RestSharp
+
+
+//HTTP Client for Testing
+==Postman
+==Fiddler
+
+
+
+==================================
+//Understanding Package Json file
+==================================
+
+==Application's index
+    ==Hold metadata related to the project
+    ==Handle project's dependencies
+    ==identify the project
+    ==hold application information
+
+//Creating Package.json file
+    == npm init --y
+
+//To avoid writing node index.js, we can add properties in package.json's script object:
+    == "start": "node index.js"
+
+
+==============
+URL Module
+==============
+
+Built in URL Module
+==The url module splits up a web address into readable parts
+
+//http://google.com/home.html?year=2020&month=july;
+    ==Host Name = www.google.com
+    ==Path Name = home.html
+    ==Query == year=2020&month=july
+
+==>"http://" is a must before url.
+
+
+
+=================================
+Getting Started With FS Module
+=================================
+
+==Node JS includes fs module to access physical file system
+==The fs module is responsible for all asynchronous or synchronous file I/O operations
