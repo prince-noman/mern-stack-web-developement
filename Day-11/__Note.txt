@@ -1,0 +1,322 @@
+========================================
+//Understanding Synchronous Asynchronous
+========================================
+
+==Synchronous Theory
+    ===Data is sent in form of blocks or frames
+    ===This transmission is the full duplex type
+    ===There is no gap present between Data
+    ===Synchronous transmission is fast
+    ===More efficient and more reliable for large amount of Data
+
+    ==Problems while using request response model:
+        ===Loading...Loading...
+        ===You have to wait for it to finish
+        ===After finish you can move
+
+==Asynchronous Theory
+    ===This transmission is the half-duplex type transmission
+    ===Start bits and stop bits are added with Data
+    ===Data is sent in form of byte or character
+    ===Asynchronous transmission is slow
+    ===There is present gap between Data
+
+    ==Benfits while using request response model:
+        ===No Loading...No Loading...
+        ===No need to wait
+        ===You can move
+
+========================================
+//Understanding Synchronous Asynchronous Part-2
+========================================
+
+===Synchronous is suitable for simple server processing
+===Asynchronous is suitable for multitasking and heavy processing related request.
+
+
+========================================
+//Understanding fs modules method
+========================================
+==Some important fs module of Asynchronous process(slide)
+    ===there is a callback function in every Asynchronous process cause there will be a notificaion after ending the task
+==Some important fs module of Synchronous process(slide)
+    ===in Synchronous process there is Sync word at the end of every method
+
+
+========================================
+//fs ready file ready html page
+========================================
+==create a html page
+==then read the html page via index.js file with node js server
+
+//Asynchronous process
+var fs = require("fs");
+var http = require("http");
+
+var server = http.createServer(function (req, res) {
+  //Read a file and show
+  if ((req.url = "/")) {
+    fs.readFile("Home.html", function (error, data) {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.write(data);
+      res.end();
+    });
+  }
+});
+
+server.listen(6060);
+console.log("Server running...");
+
+
+
+========================================
+//fs read file Synchronous
+========================================
+
+
+//Synchronous process
+var fs = require("fs");
+var http = require("http");
+
+var server = http.createServer(function (req, res) {
+  if ((req.url = "/")) {
+    //Synchronus
+    var myData = fs.readFileSync("Home.html");
+    res.writeHead(200, { "Content-Type": "text/html" });
+    res.write(myData);
+    res.end();
+  }
+});
+server.listen(6060);
+console.log("server is running..");
+
+
+
+========================================
+//fs File Write Async
+========================================
+==fs.writeFile("filename", "content", callback)
+==if same file is written again and again, then it will be overwritten
+
+example code:
+var fs = require("fs");
+var http = require("http");
+
+var server = http.createServer(function (req, res) {
+  if ((req.url = "/")) {
+    fs.writeFile("Demo.txt", "Hello World", function (error) {
+      if (error) {
+        res.writeHead(200, { "Content-Type": "text/html" });
+        res.write("File write failed");
+        res.end();
+      } else {
+        res.writeHead(200, { "Content-Type": "text/html" });
+        res.write("File write success");
+        res.end();
+      }
+    });
+  }
+});
+
+server.listen(6060);
+console.log("......");
+
+
+
+
+
+========================================
+//fs File Write Sync
+========================================
+
+==fs.writeFileSync("filename", "content");
+example code:
+// fs File Write Sync
+var fs = require("fs");
+var http = require("http");
+
+var server = http.createServer(function (req, res) {
+  if ((req.url = "/")) {
+    var error = fs.writeFileSync("DemoSync.txt", "Sync Process");
+
+    if (error) {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.write("File write failed");
+      res.end();
+    } else {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.write("File write success");
+      res.end();
+    }
+  }
+});
+
+server.listen(6060);
+console.log("---------");
+
+
+
+========================================
+//fs File Rename Async
+========================================
+==fs.rename(oldpath,newpath, callback)
+==second time rename will give error becuase the old path doesn't exist
+
+//example code:
+//fs File Rename Async
+var fs = require("fs");
+var http = require("http");
+
+var server = http.createServer(function (req, res) {
+  if ((req.url = "/")) {
+    fs.rename("rename.txt", "rename_new.txt", function (error) {
+      if (error) {
+        res.writeHead(200, { "Content-Type": "text/html" });
+        res.write("File rename failed");
+        res.end();
+      } else {
+        res.writeHead(200, { "Content-Type": "text/html" });
+        res.write("File write success");
+        res.end();
+      }
+    });
+  }
+});
+
+server.listen(6060);
+console.log("---------");
+
+
+========================================
+//fs File Rename Sync
+========================================
+==fs.renameSync(oldpath,newpath);->This return a decision
+==this module will produce error
+
+example code:
+
+var fs = require("fs");
+var http = require("http");
+
+var server = http.createServer(function (req, res) {
+  if (req.url == "/") {
+    var error = fs.renameSync("renameSyncNew.txt", "renameSyncNewNew.txt");
+
+    if (error) {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.write("File rename failed");
+      res.end();
+    } else {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.write("File rename success");
+      res.end();
+    }
+  }
+});
+
+server.listen(6060);
+console.log("---------");
+
+
+
+========================================
+//fs File Delete Async
+========================================
+==fs.unlink("file directory", callback)
+
+example code:
+var fs = require("fs");
+var http = require("http");
+
+var server = http.createServer(function (req, res) {
+  if (req.url == "/") {
+    fs.unlink("delete.txt", function (error) {
+      if (error) {
+        res.writeHead(200, { "Content-Type": "text/html" });
+        res.write("File delete failed");
+        res.end();
+      } else {
+        res.writeHead(200, { "Content-Type": "text/html" });
+        res.write("File delete success");
+        res.end();
+      }
+    });
+  }
+});
+
+server.listen(6060);
+console.log("---------");
+
+
+
+
+
+========================================
+//fs File Delete Sync
+Q::: name match na krle error show kore na, browser e. why?
+========================================
+==fs.unlinkSync("file directory");-> error->This return a decision
+
+example code:
+
+var fs = require("fs");
+var http = require("http");
+
+var server = http.createServer(function (req, res) {
+  if (req.url == "/") {
+    var error = fs.unlinkSync("deleteSyncsss.txt");
+
+    if (error) {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.write("File delete failed");
+      res.end();
+    } else {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.write("File delete success");
+      res.end();
+    }
+  }
+});
+
+server.listen(6060);
+console.log("---------");
+
+
+
+
+
+
+========================================
+//fs File Exists Sync
+Q::: server of kore on kore dekha lage, name change krle. why?
+========================================
+==fs.existsSync("directory name");
+
+
+example code:
+
+var fs = require("fs");
+var http = require("http");
+
+var server = http.createServer(function (req, res) {
+  if (req.url == "/") {
+    var result = fs.existsSync("Demos.txt");
+
+    if (result) {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.write("File exists");
+      res.end();
+    } else {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.write("File doesn't exist");
+      res.end();
+    }
+  }
+});
+
+server.listen(6060);
+console.log("---------");
+
+
+
+

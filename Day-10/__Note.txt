@@ -46,8 +46,8 @@ Built in URL Module
 
 //http://google.com/home.html?year=2020&month=july;
     ==Host Name = www.google.com
-    ==Path Name = home.html
-    ==Query == year=2020&month=july
+    ==Path Name = /home.html
+    ==Query == ?year=2020&month=july
 
 ==>"http://" is a must before url.
 
@@ -59,3 +59,7 @@ Getting Started With FS Module
 
 ==Node JS includes fs module to access physical file system
 ==The fs module is responsible for all asynchronous or synchronous file I/O operations
+
+==FS module operations can be asynchronous or synchronous
+    ===synchronous(single task at a time): loading...loading... you have to wait for it to finish...After finish you can move.
+    ===asynchronous(multitasking): No Loading....No Loading.... no need to wait....you can move any time.
