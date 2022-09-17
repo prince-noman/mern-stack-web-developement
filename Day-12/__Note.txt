@@ -1,0 +1,77 @@
+//Getting Started Node js with mongodb atlas****
+
+MongoDB=> It is a only database system without hosting facility
+MongoDB Atlas=> It is a MongoDB cloud service
+
+MongoDB Atlas => database system with cloud service to host
+
+//Tools
+MongoDB Compass => MongoDB Graphical User Interface
+MongoDB Atlas Account
+
+
+//Create New mongodb Atlas Database Cluster
+Database Cluster => Its like a region where we can keep our same database.
+    => For example we can keep our database in several region for handling that particular region's request
+
+After creating a cluster in MongoDB Atlas:
+Database Access => Have to create a DB User
+Network Access => Have to add an IP address
+
+
+//Connect MongoDB Compass With MongoDB Cluster
+MongoDB Compass => connect with Atlas. 
+    Cluster > connect > Connect with Compass> copy the sting and paste it in the compass interface
+
+=> Collection = Table
+
+
+
+//Create New MongoDB Node JS Project
+
+=>There is 2 MongoDB Library
+    => MongoDB 
+    => Mongooese
+
+We will use MongoDB Library
+
+MongoDB Package Installation
+=> npm install mongodb
+
+
+
+
+//Create Node js connection with mongoDB Cluster
+
+const MongoClient = require("mongodb").MongoClient;
+
+const URL =
+  "mongodb+srv://princedemo:princemongodb@cluster0.vakumzs.mongodb.net/?retryWrites=true&w=majority";
+
+MongoClient.connect(URL, function (error) {
+  if (error) {
+    console.log("Connection fail");
+  } else {
+    console.log("Connection Succes");
+  }
+});
+
+
+// If get useUnifiedTopology Error
+
+/* 
+const MongoClient = require("mongodb").MongoClient;
+
+const URL =
+  "mongodb+srv://princedemo:princemongodb@cluster0.vakumzs.mongodb.net/?retryWrites=true&w=majority";
+
+const config = {useUnifiedTopology: true}
+
+MongoClient.connect(URL, config, function (error) {
+  if (error) {
+    console.log("Connection fail");
+  } else {
+    console.log("Connection Succes");
+  }
+});
+
